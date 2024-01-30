@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">FavoriteShowCharacterList</string>
+
+    <string name="app_const_all">All</string>
+
+    <string name="button_filterAirNation_desc">Filter By Air Nation</string>
+    <string name="button_filterWaterNation_desc">Filter By Water Nation</string>
+    <string name="button_filterEarthNation_desc">Filter By Earth Nation</string>
+    <string name="button_filterFireNation_desc">Filter By Fire Nation</string>
+    <string name="button_showAllNations_desc">Show All Characters</string>
+
+
+    <string name="characterCard_image_desc">Image Of The Character</string>
+
+</resources>
