@@ -12,6 +12,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.characters_page);
 
 
-        ArrayList<Character> characterList = new ArrayList<>();
+        List<Character> characterList = new ArrayList<>();
         characterListRecyclerView = findViewById(R.id.recyclerView);
         displayResults = findViewById(R.id.displayResults);
 
@@ -53,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         displayCharacterList(characters.getAllCharacters());
     }
 
-    private void displayCharacterList(ArrayList<Character> characterList){
+    private void displayCharacterList(List<Character> characterList){
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         CustomAdapter customAdapter = new CustomAdapter(characterList);
 

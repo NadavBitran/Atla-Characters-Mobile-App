@@ -12,12 +12,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
 
-    ArrayList<Character> characterList;
+    List<Character> characterList;
 
-    public CustomAdapter(ArrayList<Character> characterList){
+    public CustomAdapter(List<Character> characterList){
         this.characterList = characterList;
     }
 

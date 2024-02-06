@@ -1,28 +1,21 @@
 package com.example.favoriteshowcharacterlist;
 
 
-import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public final class CharacterList {
-    private final ArrayList<Character> characterList;
-    public CharacterList(ArrayList<Character> characterList){
+    private final List<Character> characterList;
+    public CharacterList(List<Character> characterList){
         this.characterList = characterList;
     }
 
-    public ArrayList<Character> getAllCharacters() {return this.characterList;}
+    public List<Character> getAllCharacters() {return this.characterList;}
 
-    public ArrayList<Character> getCharactersFromNation(CharacterNation nation){
-        ArrayList<Character> charactersFromNation =  new ArrayList<>();
-
-        System.out.println(characterList.toString());
-
-        for(Character character : characterList){
-            if(character.getCharacterNation() == nation){
-                charactersFromNation.add(character);
-            }
-        }
-
-        return charactersFromNation;
+    public List<Character> getCharactersFromNation(CharacterNation nation){
+        return characterList.stream()
+                .filter(character -> character.getCharacterNation() == nation)
+                .collect(Collectors.toList());
     }
 
 }
