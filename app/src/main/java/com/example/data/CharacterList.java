@@ -1,4 +1,4 @@
-package com.example.favoriteshowcharacterlist;
+package com.example.data;
 
 
 import java.util.List;
@@ -15,6 +15,12 @@ public final class CharacterList {
     public List<Character> getCharactersFromNation(CharacterNation nation){
         return characterList.stream()
                 .filter(character -> character.getCharacterNation() == nation)
+                .collect(Collectors.toList());
+    }
+
+    public List<Character> getCharactersByCharacterName(String characterName){
+        return characterList.stream()
+                .filter(character -> character.getCharacterName().toLowerCase().contains(characterName.toLowerCase()))
                 .collect(Collectors.toList());
     }
 

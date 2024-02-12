@@ -1,9 +1,11 @@
 package com.example.favoriteshowcharacterlist;
 
 
+import android.app.Dialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -11,15 +13,27 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
+import com.example.data.Character;
+import com.example.favoriteshowcharacterlist.card.CardType;
+import com.example.favoriteshowcharacterlist.card.CharacterCardUtils;
+
 import java.util.List;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
 
-    List<Character> characterList;
+    private List<Character> characterList;
+    private final Dialog popupCharacterWindow;
 
-    public CustomAdapter(List<Character> characterList){
+
+    public void updateCustomAdapterData(List<Character> updatedCharacterList)
+    {
+        this.characterList = updatedCharacterList;
+        notifyDataSetChanged();
+    }
+
+    public CustomAdapter(List<Character> characterList , Dialog popupCharacterWindow){
         this.characterList = characterList;
+        this.popupCharacterWindow = popupCharacterWindow;
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
@@ -27,6 +41,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         private final TextView characterDescField;
         private final ImageView characterImageField;
         private final LinearLayout innerCardLayout;
+        private final Button characterLearnMoreField;
 
         public MyViewHolder(View view){
             super(view);
@@ -35,6 +50,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             this.characterDescField = view.findViewById(R.id.characterDesc);
             this.characterImageField = view.findViewById(R.id.characterImage);
             this.innerCardLayout = view.findViewById(R.id.innerCardLayout);
+            this.characterLearnMoreField = view.findViewById(R.id.characterLearnMoreBtn);
         }
 
     }
@@ -51,30 +67,19 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
-        holder.characterNameField.setText(characterList.get(position).getCharacterName());
-        holder.characterDescField.setText(characterList.get(position).getCharacterDesc());
-        holder.characterImageField.setImageResource(characterList.get(position).getCharacterImage());
+        CharacterCardUtils.fillCard(CardType.SEARCH_CARD , holder.characterNameField , holder.characterDescField ,
+                 holder.characterImageField , null , holder.characterLearnMoreField ,
+                 holder.innerCardLayout , characterList.get(holder.getAdapterPosition()));
 
 
+        holder.characterLearnMoreField.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CharacterCardUtils.openPopupCard(popupCharacterWindow , characterList.get(holder.getAdapterPosition()));
+            }
+        });
 
-        switch(characterList.get(position).getCharacterNation()){
 
-            case AIR:
-                holder.innerCardLayout.setBackgroundResource(R.drawable.card_design_air);
-                break;
-
-            case WATER:
-                holder.innerCardLayout.setBackgroundResource(R.drawable.card_design_water);
-                break;
-
-            case EARTH:
-                holder.innerCardLayout.setBackgroundResource(R.drawable.card_design_earth);
-                break;
-
-            case FIRE:
-                holder.innerCardLayout.setBackgroundResource(R.drawable.card_design_fire);
-                break;
-        }
 
     }
 

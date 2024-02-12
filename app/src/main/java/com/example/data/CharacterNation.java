@@ -1,4 +1,4 @@
-package com.example.favoriteshowcharacterlist;
+package com.example.data;
 
 public enum CharacterNation {
     AIR,
