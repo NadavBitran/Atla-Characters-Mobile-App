@@ -3,13 +3,19 @@
 ## Video:
 
 
-https://github.com/NadavBitran/Atla-Characters-Mobile-App/assets/122038636/a94d5127-4e5c-44fc-b95c-03ea1984afbc
+
+https://github.com/NadavBitran/Atla-Characters-Mobile-App/assets/122038636/3c99c0ab-e1f5-4d6e-a9e8-6c56c062e7a8
+
+
+
 
 
 
 ## Main Features:
 - Displaying 28 Unique ATLA Characters with thier names, images and description
+- Search For Characters By Thier Names
 - Filter Characters By The 4 Different Nations
+- View More Details About Characters With A Popup Dialog
 
 
 ## Acknowledgements:
