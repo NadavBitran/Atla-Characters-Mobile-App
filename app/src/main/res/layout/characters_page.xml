@@ -20,6 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="0dp"
+        android:layoutDirection="ltr"
         android:orientation="horizontal"
         android:padding="10dp">
 
@@ -44,7 +45,7 @@
             android:layout_margin="0dp"
             android:layout_weight="1"
             android:contentDescription="@string/button_filterAirNation_desc"
-            android:onClick="filterCharacters"
+            android:onClick="filterCharactersByNation"
             android:padding="0dp"
             android:scaleType="centerCrop"
             android:src="@drawable/image_nation_air" />
@@ -56,7 +57,7 @@
             android:layout_margin="0dp"
             android:layout_weight="1"
             android:contentDescription="@string/button_filterWaterNation_desc"
-            android:onClick="filterCharacters"
+            android:onClick="filterCharactersByNation"
             android:padding="0dp"
             android:scaleType="centerCrop"
             android:src="@drawable/image_nation_water" />
@@ -68,7 +69,7 @@
             android:layout_margin="0dp"
             android:layout_weight="1"
             android:contentDescription="@string/button_filterEarthNation_desc"
-            android:onClick="filterCharacters"
+            android:onClick="filterCharactersByNation"
             android:padding="0dp"
             android:scaleType="centerCrop"
             android:src="@drawable/image_nation_earth" />
@@ -80,12 +81,28 @@
             android:layout_margin="0dp"
             android:layout_weight="1"
             android:contentDescription="@string/button_filterFireNation_desc"
-            android:onClick="filterCharacters"
+            android:onClick="filterCharactersByNation"
             android:padding="0dp"
             android:scaleType="centerCrop"
             android:src="@drawable/image_nation_fire" />
 
     </LinearLayout>
+
+    <SearchView
+        android:id="@+id/searchBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/search_bar_design"
+        android:closeIcon="@drawable/image_exit"
+        android:iconifiedByDefault="false"
+        android:layoutDirection="rtl"
+        android:queryHint="Search..."
+        android:searchHintIcon="@drawable/image_search_bar"
+        android:searchIcon="@drawable/image_search_bar">
+
+    </SearchView>
 
     <TextView
         android:id="@+id/displayResults"
